@@ -41,11 +41,13 @@ class HeaderBar extends React.Component {
         return(
             <div>
             <div id='header'>
-                <span>{this.props.nofActiveTasks} items left</span>
-                <button onClick={()=>{this.showElem('listActiv');this.showElem('listComp');}}>All</button>
-                <button onClick={()=>{this.hideElem('listComp');this.showElem('listActiv');}}>Active</button>
-                <button onClick={()=>{this.hideElem('listActiv');this.showElem('listComp');}}>Completed</button>
-                <button onClick={()=>this.props.clicToClearComp()}>Clear Completed</button>
+                <span id='itemsleft'>{this.props.nofActiveTasks} items left</span>
+                <button id='clearComp' onClick={()=>this.props.clicToClearComp()}>Clear Completed</button>
+                <div id='subheader'>
+                        <button onClick={()=>{this.showElem('listActiv');this.showElem('listComp');}}>All</button>
+                        <button onClick={()=>{this.hideElem('listComp');this.showElem('listActiv');}}>Active</button>
+                        <button onClick={()=>{this.hideElem('listActiv');this.showElem('listComp');}}>Completed</button>
+                </div>
             </div>
             <div id='listActiv'>
                 {this.props.ActArr}
@@ -88,7 +90,7 @@ class TaskInput extends React.Component {
         this.setState({ActiveTasks:DummyActiveTasks2});
         console.log("Copying Task Component to Completed array and removing from Active array");
         let DummyActiveTasksArr2 = this.state.ActiveTasksArr;
-        let TaskElem = DummyActiveTasksArr2.find((cmpnt) => {return cmpnt.props.idx==indx;});
+        let TaskElem = DummyActiveTasksArr2.find((cmpnt) => {return cmpnt.props.idx===indx;});
         if (TaskElem) {
             let indexInArray = DummyActiveTasksArr2.indexOf(TaskElem);
             DummyActiveTasksArr2.splice(indexInArray,1);
@@ -109,7 +111,7 @@ class TaskInput extends React.Component {
     }
     storeEntry() {
         const txtar=document.getElementById('entrytxt');
-        if (txtar.value!='') {
+        if (txtar.value!=='') {
             let taskcontent=txtar.value.replace(/\n/g, " ");
             txtar.value=''; txtar.style.height='15px';
             this.setState({

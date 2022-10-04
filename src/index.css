@@ -2,14 +2,14 @@
     border: none;
     border-radius: 5px;
     background-color: hsl(235, 24%, 19%);
-    width: 54.5%; min-height: 55px;
+    width: 93%; min-height: 55px;
 }
 #entrytxt{
     display: inline-block;
     margin-left: 3px;
-    margin-top: 12px;
+    margin-top: 15px;
     border: none; border-radius: 5px; outline: none;
-    height: 15px; width: 80%;
+    height: 15px; width: 70%;
     resize: none;
     padding: 1.5%;
     overflow: hidden;
@@ -54,20 +54,32 @@
     border-top-left-radius: 5px; border-top-right-radius: 5px;
     background-color: hsl(235, 24%, 19%);
     color: hsl(233, 14%, 35%);
-    width: 54.5%; height: 50px;
+    width: 93%; height: 50px;
     position: relative;
     top: 20px;
     margin-bottom: 20px;
 }
-#header :nth-child(1){
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 20px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 15px; font-weight: 500;
-    margin-right: 50px;
+@media only screen and (max-width: 835px) {
+    #header{
+        height: 80px;
+    }
+    #subheader{
+        width: 100%; height: 40%;
+        margin: 0px 0px 0px 0px;
+        display: flex;
+        align-items: center; justify-content: space-between;
+    }
+    #subheader :nth-child(1){
+        margin-left: 30px;
+    }
+    #subheader :nth-last-child(1){
+        margin-right: 30px;
+    }
+    #subheader :nth-child(n+1){
+        margin-top: 15px;
+    }
 }
-#header :nth-child(n+2){
+#subheader :nth-child(n+1),#clearComp{
     background: none;
     border: none;
     color: hsl(233, 14%, 35%);
@@ -76,25 +88,33 @@
     font-weight: 700;
     cursor: pointer;
 }
-#header :nth-child(n+2):hover {
-    color: hsl(220, 98%, 61%);
+#itemsleft{
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 15px; font-weight: 500;
 }
-#header :nth-child(n+2):nth-last-child(n+2):focus {
-    color: hsl(220, 98%, 61%);
-}
-#header :nth-child(5){
-    margin-left: 40px;
+#clearComp{
+    float: right;
+    position: relative; right: 20px; top: 20px;
     font-weight: 500;
+}
+#subheader :nth-child(n+1):hover,#header :nth-child(2):hover {
+    color: hsl(220, 98%, 61%);
+}
+#subheader :nth-child(n+1):focus {
+    color: hsl(220, 98%, 61%);
 }
 .taskbar{
     border-top: solid 1px hsl(233, 14%, 35%);
     background-color: hsl(235, 24%, 21%);
-    width: 54.5%; min-height: 50px;
+    width: 93%; min-height: 50px;
     color: hsl(234, 39%, 85%);
 }
 .activtaskcontent,.comptaskcontent{
     display: inline-block;
-    width: 85%;
+    width: 75%;
     vertical-align: top; margin-top: 22px; margin-bottom: 10px;
     position: relative; bottom: 6px; left: 12px;
     font-family: 'Josefin Sans', sans-serif;
@@ -116,4 +136,28 @@
     background-color: transparent;
     margin-left: 18px; margin-top: 13px; margin-right: 10px;
     background-image: linear-gradient(to bottom right,hsl(192, 100%, 67%),hsl(280, 87%, 65%));
+}
+@media only screen and (min-width: 836px) {    
+    #entry{
+        width: 54.5%;
+    }
+    #entrytxt{
+        margin-top: 13px;
+        height: 15px;
+    }
+    #header{
+        width: 54.5%;
+    }
+    #subheader{
+        display: inline-block;
+    }
+    #itemsleft{
+        margin-right: 10%;
+    }
+    .taskbar{
+        width: 54.5%;
+    }
+    .activtaskcontent,.comptaskcontent{
+        width: 85%;
+    }
 }
